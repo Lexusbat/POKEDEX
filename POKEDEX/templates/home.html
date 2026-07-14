@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pokedex</title>
+</head>
+
+<body>
+
+<h1>Pokedex</h1>
+
+<form method="POST">
+    <input
+        type="text"
+        name="pokemon"
+        placeholder="Enter Pokemon">
+    <button>Search</button>
+</form>
+
+{% if pokemon %}
+
+<h2>{{ pokemon.name.title() }}</h2>
+
+<img src="{{ pokemon.sprites.front['default'] }}">
+
+<p>Height: {{ pokemon.height }}</p>
+<p>Weight: {{ pokemon.weight }}</p>
+
+{% endif %}
+
+</body>
+
+</html>
