@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 import pypokedex
 
+app = Flask(__name__)
+
 TYPE_COLORS = {
     "normal": "#A8A77A",
     "fire": "#EE8130",
@@ -22,45 +24,51 @@ TYPE_COLORS = {
     "fairy": "#D685AD",
 }
 
-app = Flask(__name__)
-
-
 @app.route("/", methods=["GET", "POST"])
 def home():
 
     pokemon = None
+    pokemon_list = []
     header_style = ""
 
     if request.method == "POST":
-        name = request.form["pokemon"]
 
-        try:
-            pokemon = pypokedex.get(name=name.lower())
+        action = request.form["action"]
 
-            # Primary type colour
-            color1 = TYPE_COLORS[pokemon.types[0].lower()]
+        if action == "search":
 
-            # Secondary type colour (if it exists)
-            if len(pokemon.types) > 1:
-                color2 = TYPE_COLORS[pokemon.types[1].lower()]
-            else:
-                color2 = color1
+            name = request.form["pokemon"]
 
-            # Build CSS gradient
-            header_style = (
-                f"background: linear-gradient(135deg, {color1}, {color2});"
-            )
-            print(header_style)
+            try:
+                pokemon = pypokedex.get(name=name.lower())
 
-        except Exception:
-            pokemon = None
+                color1 = TYPE_COLORS[pokemon.types[0].lower()]
+
+                if len(pokemon.types) > 1:
+                    color2 = TYPE_COLORS[pokemon.types[1].lower()]
+                else:
+                    color2 = color1
+
+                header_style = (
+                    f"background: linear-gradient(135deg, {color1}, {color2});"
+                )
+
+            except:
+                pokemon = None
+
+        elif action == "all":
+
+            for dex in range(1, 152):
+                pokemon_list.append(
+                    pypokedex.get(dex=dex)
+                )
 
     return render_template(
         "home.html",
         pokemon=pokemon,
+        pokemon_list=pokemon_list,
         header_style=header_style,
     )
-
 
 if __name__ == "__main__":
     app.run(debug=True)

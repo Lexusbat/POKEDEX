@@ -14,11 +14,20 @@
 
 <div class="search-container">
     <form method="POST">
-        <input
-            type="text"
-            name="pokemon"
-            placeholder="Enter Pokémon">
-        <button type="submit">Search</button>
+
+    <input
+        type="text"
+        name="pokemon"
+        placeholder="Enter Pokémon">
+
+    <button type="submit" name="action" value="search">
+        Search
+    </button>
+
+    <button type="submit" name="action" value="all">
+        Show All
+    </button>
+
     </form>
 </div>
 
@@ -61,7 +70,36 @@
 </div>
 
     {% endif %}
+{% if pokemon_list %}
 
+<div class="pokemon-grid">
+
+    {% for pokemon in pokemon_list %}
+
+    <div class="mini-card">
+
+    <img
+        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon.dex }}.png">
+
+    <h3>{{ pokemon.name.title() }}</h3>
+
+    <p>#{{ "%03d"|format(pokemon.dex) }}</p>
+
+    <div class="types">
+        {% for type in pokemon.types %}
+        <span class="type {{ type.lower() }}">
+            {{ type }}
+        </span>
+        {% endfor %}
+    </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
 </body>
 
 </html>
