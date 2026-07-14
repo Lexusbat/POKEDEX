@@ -125,7 +125,7 @@ button{
 
     transform:scale(1.08);
 }
-..normal {
+.normal {
     background: #A8A77A;
 }
 
