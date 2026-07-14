@@ -123,6 +123,11 @@ button:hover {
 
     transform-style: preserve-3d;
 }
+.card-inner * {
+
+    backface-visibility: inherit;
+
+}
 
 .pokemon-card.flipped .card-inner {
 
@@ -132,7 +137,6 @@ button:hover {
 /* ========================= */
 /* FRONT + BACK */
 /* ========================= */
-
 .card-front,
 .card-back {
 
@@ -148,40 +152,54 @@ button:hover {
 
     border-radius: 30px;
 
-    overflow: hidden;
-
     backface-visibility: hidden;
 
     -webkit-backface-visibility: hidden;
 
     box-shadow: 0 20px 40px rgba(0,0,0,.35);
+
+    transform-style: preserve-3d;
+
 }
+
+
+/* ========================= */
+/* FRONT */
+/* ========================= */
 
 .card-front {
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
+
+    overflow:hidden;
+
 }
+
+
+/* ========================= */
+/* BACK */
+/* ========================= */
 
 .card-back {
 
-    transform: rotateY(180deg);
+    transform:rotateY(180deg);
 
-    padding: 25px;
+    padding:25px;
 
-    box-sizing: border-box;
+    box-sizing:border-box;
 
-    display: flex;
+    display:flex;
 
-    flex-direction: column;
+    flex-direction:column;
 
-    gap: 18px;
+    gap:18px;
 
-    overflow-y: auto;
+    overflow-y:auto;
+
 }
-
-/* ========================= */
+/*========= */
 /* HEADER */
 /* ========================= */
 
@@ -238,13 +256,13 @@ button:hover {
 
 .pokemon-image {
 
-    width: 180px;
+    width:180px;
 
-    position: relative;
+    position:relative;
 
-    z-index: 2;
+    transition:.3s;
 
-    transition: .3s;
+    transform: translateZ(1px);
 }
 
 .pokemon-image:hover {
@@ -389,7 +407,12 @@ button:hover {
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
 
     gap: 25px;
+
+    margin-bottom:80px;
+
+
 }
+
 
 .mini-card {
 

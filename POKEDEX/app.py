@@ -39,7 +39,6 @@ def get_description(dex):
 
     return "No description available."
 @app.route("/", methods=["GET", "POST"])
-@app.route("/", methods=["GET", "POST"])
 def home():
 
     print("HOME FUNCTION CALLED")
@@ -87,10 +86,13 @@ def home():
 
             print("Loading all Pokémon...")
 
-            for dex in range(1, 152):
-                pokemon_list.append(
-                    pypokedex.get(dex=dex)
-                )
+            for dex in range(1, 152): 
+
+                try:
+                  pokemon_list.append(
+                    pypokedex.get(dex=dex))
+                except Exception as e:
+                    print(f"Failed loading Pokémon #{dex}: {e}")
 
             print(f"Loaded {len(pokemon_list)} Pokémon.")
 
