@@ -1,105 +1,135 @@
-<!DOCTYPE html>
-<html>
+{% if pokemon %}
 
-<head>
-    <title>Pokedex</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
+<div class="pokemon-card" onclick="this.classList.toggle('flipped')">
 
-<body>
+    <div class="card-inner">
 
-    <img src="{{ url_for('static', filename='logo.png') }}"
-         alt="Pokémon Logo"
-         class="logo">
+        <!-- ================= FRONT ================= -->
 
-<div class="search-container">
-    <form method="POST">
+        <div class="card-front">
 
-    <input
-        type="text"
-        name="pokemon"
-        placeholder="Enter Pokémon">
+            <div class="card-header" style="{{ header_style }}">
 
-    <button type="submit" name="action" value="search">
-        Search
-    </button>
+                <div class="circle"></div>
 
-    <button type="submit" name="action" value="all">
-        Show All
-    </button>
+                <img
+                    class="pokemon-image"
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon.dex }}.png"
+                    alt="{{ pokemon.name }}">
 
-    </form>
-</div>
+            </div>
 
-    {% if pokemon %}
-<div class="pokemon-card">
+            <div class="card-content">
 
-    <div class="card-header" style="{{ header_style }}">
-        <div class="circle"></div>
+                <h2>{{ pokemon.name.title() }}</h2>
 
-        <img
-            class="pokemon-image"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon.dex }}.png">
+                <p class="dex-number">
+                    #{{ "%03d"|format(pokemon.dex) }}
+                </p>
 
-    </div>
+                <div class="types">
 
-    <div class="card-content">
+                    {% for type in pokemon.types %}
+                    <span class="type {{ type.lower() }}">
+                        {{ type }}
+                    </span>
+                    {% endfor %}
 
-        <h2>{{ pokemon.name.title() }}</h2>
+                </div>
 
-        <p class="dex-number">
-            #{{ "%03d"|format(pokemon.dex) }}
-        </p>
+                <p class="flip-hint">
+                    🔄 Click card to view Pokédex Entry
+                </p>
 
-        <div class="types">
-
-            {% for type in pokemon.types %}
-
-            <span class="type {{ type.lower() }}">
-                {{ type }}
-            </span>
-
-            {% endfor %}
+            </div>
 
         </div>
 
- 
+        <!-- ================= BACK ================= -->
+
+        <div class="card-back">
+
+            <h2>{{ pokemon.name.title() }}</h2>
+
+            <p class="dex-number">
+                #{{ "%03d"|format(pokemon.dex) }}
+            </p>
+
+            <div class="types">
+
+                {% for type in pokemon.types %}
+                <span class="type {{ type.lower() }}">
+                    {{ type }}
+                </span>
+                {% endfor %}
+
+            </div>
+
+            <div class="stats">
+
+                <div class="info-box">
+                    <h4>HP</h4>
+                    <p>{{ pokemon.base_stats.hp }}</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Attack</h4>
+                    <p>{{ pokemon.base_stats.attack }}</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Defense</h4>
+                    <p>{{ pokemon.base_stats.defense }}</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Sp. Attack</h4>
+                    <p>{{ pokemon.base_stats.special_attack }}</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Sp. Defense</h4>
+                    <p>{{ pokemon.base_stats.special_defense }}</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Speed</h4>
+                    <p>{{ pokemon.base_stats.speed }}</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Height</h4>
+                    <p>{{ pokemon.height / 10 }} m</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Weight</h4>
+                    <p>{{ pokemon.weight / 10 }} kg</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Abilities</h4>
+
+                    {% for ability in pokemon.abilities %}
+                    <p>{{ ability }}</p>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="description">
+
+                <h3>Pokédex Entry</h3>
+
+                <p>{{ description }}</p>
+
+            </div>
+
+        </div>
 
     </div>
-
-</div>
-
-    {% endif %}
-{% if pokemon_list %}
-
-<div class="pokemon-grid">
-
-    {% for pokemon in pokemon_list %}
-
-    <div class="mini-card">
-
-    <img
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon.dex }}.png">
-
-    <h3>{{ pokemon.name.title() }}</h3>
-
-    <p>#{{ "%03d"|format(pokemon.dex) }}</p>
-
-    <div class="types">
-        {% for type in pokemon.types %}
-        <span class="type {{ type.lower() }}">
-            {{ type }}
-        </span>
-        {% endfor %}
-    </div>
-
-    </div>
-
-    {% endfor %}
 
 </div>
 
 {% endif %}
-</body>
-
-</html>
