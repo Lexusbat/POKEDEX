@@ -86,13 +86,19 @@ button{
 
     margin:20px 0;
 }
-.card-header {
-    position: relative;
-    height: 220px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+.card-header{
+
+    position:relative;
+
+    height:230px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
 }
 .card-header::after{
 
