@@ -125,36 +125,80 @@ button{
 
     transform:scale(1.08);
 }
-.fire{
-    background:#F08030;
+..normal {
+    background: #A8A77A;
 }
 
-.water{
-    background:#6890F0;
+.fire {
+    background: #EE8130;
 }
 
-.grass{
-    background:#78C850;
+.water {
+    background: #6390F0;
 }
 
-.electric{
-    background:#F8D030;
+.electric {
+    background: #F7D02C;
+    color: #333;
 }
 
-.psychic{
-    background:#F85888;
+.grass {
+    background: #7AC74C;
 }
 
-.ghost{
-    background:#705898;
+.ice {
+    background: #96D9D6;
+    color: #333;
 }
 
-.dragon{
-    background:#7038F8;
+.fighting {
+    background: #C22E28;
 }
 
-.fairy{
-    background:#EE99AC;
+.poison {
+    background: #A33EA1;
+}
+
+.ground {
+    background: #E2BF65;
+    color: #333;
+}
+
+.flying {
+    background: #A98FF3;
+}
+
+.psychic {
+    background: #F95587;
+}
+
+.bug {
+    background: #A6B91A;
+}
+
+.rock {
+    background: #B6A136;
+}
+
+.ghost {
+    background: #735797;
+}
+
+.dragon {
+    background: #6F35FC;
+}
+
+.dark {
+    background: #705746;
+}
+
+.steel {
+    background: #B7B7CE;
+    color: #333;
+}
+
+.fairy {
+    background: #D685AD;
 }
 .stats{
 
