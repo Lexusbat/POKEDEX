@@ -107,15 +107,16 @@ button{
     gap: 10px;
     justify-content: center;
 }
-.types{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:10px;
-
-    margin:20px 0;
+.type {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;   /* Makes it pill-shaped */
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: capitalize;
+    text-align: center;
+    min-width: 70px;
 }
 .card-header{
 
