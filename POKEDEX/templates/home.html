@@ -25,46 +25,40 @@
     {% if pokemon %}
 <div class="pokemon-card">
 
-    <h2>
-        {{ pokemon.name.title() }}
-    </h2>
+    <div class="card-header {{ pokemon.types[0].lower() }}">
+        
 
-    <div class="types">
+        <div class="circle"></div>
 
-        {% for type in pokemon.types %}
-
-        <span class="type {{ type.lower() }}">
-            {{ type }}
-        </span>
-
-        {% endfor %}
+        <img
+            class="pokemon-image"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon.dex }}.png">
 
     </div>
 
-    <img
-    class="pokemon-image"
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ pokemon.dex }}.png">
+    <div class="card-content">
 
-<div class="stats">
+        <h2>{{ pokemon.name.title() }}</h2>
 
-    <div class="info-box">
+        <p class="dex-number">
+            #{{ "%03d"|format(pokemon.dex) }}
+        </p>
 
-        <h4>Height</h4>
+        <div class="types">
 
-        <p>{{ pokemon.height/10 }} m</p>
+            {% for type in pokemon.types %}
+
+            <span class="type {{ type.lower() }}">
+                {{ type }}
+            </span>
+
+            {% endfor %}
+
+        </div>
+
+ 
 
     </div>
-
-    <div class="info-box">
-
-        <h4>Weight</h4>
-
-        <p>{{ pokemon.weight/10 }} kg</p>
-
-    </div>
-
-</div>
-</div>
 
 </div>
 

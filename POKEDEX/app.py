@@ -2,13 +2,6 @@ from flask import Flask, render_template, request
 import pypokedex
 
 app = Flask(__name__)
-import os
-
-app = Flask(__name__)
-
-print("Running app.py:", os.path.abspath(__file__))
-print("Templates folder:", app.template_folder)
-print("Static folder:", app.static_folder)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
