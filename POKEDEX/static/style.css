@@ -24,15 +24,15 @@ body {
 }
 .pokemon-card{
 
-    width:450px;
-
-    padding:30px;
-
-    border-radius:20px;
+    width:420px;
 
     background:white;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.4);
+    border-radius:30px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
 
     text-align:center;
 }
@@ -91,4 +91,82 @@ button{
     background:#666;
 
     font-weight:bold;
+}
+.card-header{
+
+    position:relative;
+
+    height:220px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+.circle{
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+}
+.pokemon-image{
+
+    position:relative;
+
+    width:170px;
+
+    z-index:10;
+}
+.fire{
+    background:#F08030;
+}
+
+.water{
+    background:#6890F0;
+}
+
+.grass{
+    background:#78C850;
+}
+
+.electric{
+    background:#F8D030;
+}
+
+.ghost{
+    background:#705898;
+}
+
+.psychic{
+    background:#F85888;
+}
+
+.dragon{
+    background:#6F35FC;
+}
+.stats{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin:20px;
+}
+
+.info-box{
+
+    width:150px;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    background:#f4f4f4;
 }
