@@ -6,13 +6,61 @@ body {
     background-attachment: fixed;
     height: 100vh;
     margin: 0;
+    image-rendering: crisp-edges;
 
 
 }
 .logo {
     width: 100%;
-    max-width: 400px;
+    max-width: 600px;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 30px auto;
+    image-rendering: crisp-edges;
+
+}
+.pokemon-card{
+
+    width:420px;
+
+    margin:40px auto;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.1);
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+
+    box-shadow:0 10px 40px rgba(0,0,0,.4);
+}
+input{
+
+    width:280px;
+
+    padding:15px;
+
+    border-radius:40px;
+
+    border:none;
+
+    font-size:18px;
+}
+
+button{
+
+    padding:15px 25px;
+
+    border-radius:40px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#ffcb05;
+
+    font-weight:bold;
 }

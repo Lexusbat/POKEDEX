@@ -4,34 +4,36 @@
 <head>
     <title>Pokedex</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
 
-<!-- <img src="{{ url_for('static', filename='Logo.png') }}"> -->  
     <img src="{{ url_for('static', filename='Logo.png') }}"
          alt="Pokémon Logo"
          class="logo">
 
-<form method="POST">
-    <input
-        type="text"
-        name="pokemon"
-        placeholder="Enter Pokemon">
-    <button>Search</button>
-</form>
+    <form method="POST">
+        <input
+            type="text"
+            name="pokemon"
+            placeholder="Enter Pokemon">
+        <button>Search</button>
+    </form>
 
-{% if pokemon %}
+    {% if pokemon %}
 
-<h2>{{ pokemon.name.title() }}</h2>
+    <div class="pokemon-card">
 
-<img src="{{ pokemon.sprites.front['default'] }}">
+        <h2>{{ pokemon.name.title() }}</h2>
 
-<p>Height: {{ pokemon.height }}</p>
-<p>Weight: {{ pokemon.weight }}</p>
+        <img src="{{ pokemon.sprites.front['default'] }}">
 
-{% endif %}
+        <p>Height: {{ pokemon.height }}</p>
+        <p>Weight: {{ pokemon.weight }}</p>
+
+    </div>
+
+    {% endif %}
 
 </body>
 
