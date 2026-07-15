@@ -38,6 +38,16 @@ def get_description(dex):
                 return entry["flavor_text"].replace("\n", " ").replace("\f", " ")
 
     return "No description available."
+def get_pokemon_list():
+
+    url = "https://pokeapi.co/api/v2/pokemon?limit=151"
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        return response.json()["results"]
+
+    return []
 @app.route("/", methods=["GET", "POST"])
 def home():
 
@@ -84,17 +94,12 @@ def home():
 
         elif action == "all":
 
-            print("Loading all Pokémon...")
+         print("Loading all Pokémon...")
 
-            for dex in range(1, 152): 
+         pokemon_list = get_pokemon_list()
 
-                try:
-                  pokemon_list.append(
-                    pypokedex.get(dex=dex))
-                except Exception as e:
-                    print(f"Failed loading Pokémon #{dex}: {e}")
+         print(f"Loaded {len(pokemon_list)} Pokémon.")
 
-            print(f"Loaded {len(pokemon_list)} Pokémon.")
 
     return render_template(
         "home.html",
