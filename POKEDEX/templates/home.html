@@ -355,56 +355,27 @@ alt="Pokemon Logo">
 {% endif %}
 {% if pokemon_list %}
 
-
 <div class="pokemon-grid">
 
+    {% for pokemon in pokemon_list %}
 
-{% for pokemon in pokemon_list %}
+    <div class="mini-card">
 
-<div class="mini-card">
+        <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ loop.index }}.png"
+            alt="{{ pokemon.name }}">
 
-    <img
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{ loop.index }}.png">
+        <h3>{{ pokemon.name.title() }}</h3>
 
-    <h3>{{ pokemon.name.title() }}</h3>
+        <p>#{{ "%03d"|format(loop.index) }}</p>
 
-    <p>#{{ "%03d"|format(loop.index) }}</p>
+    </div>
 
-</div>
-
-{% endfor %}
-
-
-<div class="types">
-
-
-{% for type in pokemon.types %}
-
-<span class="type {{ type.lower() }}">
-
-{{ type }}
-
-</span>
-
-{% endfor %}
-
+    {% endfor %}
 
 </div>
-
-
-
-</div>
-
-
-{% endfor %}
-
-
-</div>
-
 
 {% endif %}
 
-
 </body>
-
 </html>
