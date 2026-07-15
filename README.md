@@ -26,8 +26,6 @@ An interactive Pokédex web application built with **Python**, **Flask**, and th
 
 ## 📸 Preview
 
-> *(Add screenshots of your application here.)*
-
 ### Front Card
 
 ![Front](images/front.png)
@@ -76,7 +74,7 @@ POKEDEX/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/pokedex.git
+git clone https://github.com/Lexusbat/pokedex.git
 ```
 
 Navigate to the project:
@@ -164,7 +162,7 @@ This project helped me gain practical experience with:
 
 **Skye Delport**
 
-GitHub: https://github.com/YOUR_USERNAME
+GitHub: https://github.com/Lexusbat
 
 ---
 
