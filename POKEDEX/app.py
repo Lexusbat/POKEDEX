@@ -103,6 +103,5 @@ def home():
         header_style=header_style,
         description=description
     )
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
